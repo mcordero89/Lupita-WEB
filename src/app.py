@@ -70,7 +70,7 @@ def get_response(user_input):
 
 # app config
 st.set_page_config(page_title="Lupita-WEB", page_icon=":mag:")
-st.title("Lupita-WEB")
+st.title("Lupita-WEB :mag:")
 
 # sidebar
 with st.sidebar:
