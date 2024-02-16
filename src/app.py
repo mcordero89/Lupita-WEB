@@ -69,28 +69,28 @@ def get_response(user_input):
     return response['answer']
 
 # app config
-st.set_page_config(page_title="Chat with websites", page_icon="🤖")
-st.title("Chat with websites")
+st.set_page_config(page_title="Lupita-WEB", page_icon=":mag:")
+st.title("Lupita-WEB")
 
 # sidebar
 with st.sidebar:
-    st.header("Settings")
-    website_url = st.text_input("Website URL")
+    st.header("Diputación de Badajoz")
+    website_url = st.text_input("Enlace Web")
 
 if website_url is None or website_url == "":
-    st.info("Please enter a website URL")
+    st.info("Por favor ingrese un enlace web")
 
 else:
     # session state
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = [
-            AIMessage(content="Hello, I am a bot. How can I help you?"),
+            AIMessage(content="Hola, soy Lupita. ¿Te puedo ayudar en algo?"),
         ]
     if "vector_store" not in st.session_state:
         st.session_state.vector_store = get_vectorstore_from_url(website_url)    
 
     # user input
-    user_query = st.chat_input("Type your message here...")
+    user_query = st.chat_input("Escribe tu mensaje aquí...")
     if user_query is not None and user_query != "":
         response = get_response(user_query)
         st.session_state.chat_history.append(HumanMessage(content=user_query))
